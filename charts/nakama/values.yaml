@@ -1,4 +1,4 @@
-externalIPs: 10.0.3.7
+#externalIPs:
 imagePullSecrets: []
 resources: {}
   # Example
@@ -40,7 +40,7 @@ runtime:
 socket:
   port: 7350
   serverKey: "defaultkey"
-  type: NodePort
+  type: "NodePort"
   nodePort: 30020
   outgoingQueueSize: 16
 

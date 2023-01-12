@@ -31,9 +31,9 @@ spec:
   selector:
     component: node
     {{- include "nakama.selectorLabels" . | nindent 4 }}
-  externalIPs:
-    {{- with .Values.externalIPs }}
-      {{- range . }}
-        - {{ . | quote }}
-      {{- end }}
-    {{- end }}
+  # externalIPs:
+  #   {{- with .Values.externalIPs }}
+  #     {{- range . }}
+  #       - {{ . | quote }}
+  #     {{- end }}
+  #   {{- end }}
