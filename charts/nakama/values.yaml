@@ -1,4 +1,4 @@
-externalIPs:
+externalIPs: 10.0.3.7
 imagePullSecrets: []
 resources: {}
   # Example
