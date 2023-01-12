@@ -8,6 +8,7 @@ metadata:
     {{- include "nakama.selectorLabels" . | nindent 4 }}
 spec:
   type: {{ .Values.socket.type }}
+  externalTrafficPolicy": "Cluster"
   ports:
   - name: grpc
     port: {{ .Values.grpc.port }}
