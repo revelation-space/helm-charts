@@ -33,7 +33,7 @@ spec:
             - -c
             - >
               set -x;
-              while [ $(curl -sw '%{http_code}' "{{ include "nakama.fullname" . }}-database:{{ .Values.database.port }}" -o /dev/null) -ne 200 ]; do
+              while [ $(curl -sw '%{http_code}' "{{ .Values.database.url }}:{{ .Values.database.port }}" -o /dev/null) -ne 200 ]; do
                 sleep 15;
               done;
               sleep 15;
@@ -44,8 +44,8 @@ spec:
         - -ecx
         - |
           {{ if eq .Values.database.type "cockroachdb" }}
-          /nakama/nakama migrate up --database.address root@{{ include "nakama.fullname" . }}-database:{{ .Values.database.port }} &&
-          exec /nakama/nakama --database.address root@{{ include "nakama.fullname" . }}-database:{{ .Values.database.port }} --config /nk-config/nakama-config.yml
+          /nakama/nakama migrate up --database.address root@{{ .Values.database.url }}:{{ .Values.database.port }} &&
+          exec /nakama/nakama --database.address root@{{ .Values.database.url }}:{{ .Values.database.port }} --config /nk-config/nakama-config.yml
           {{ else if eq .Values.database.type "postgres" }}
           /nakama/nakama migrate up --database.address postgres:localdb@{{ include "nakama.fullname" . }}-database:{{ .Values.database.port }}/nakama &&
           exec /nakama/nakama --database.address postgres:localdb@{{ include "nakama.fullname" . }}-database:{{ .Values.database.port }}/nakama --config /nk-config/nakama-config.yml

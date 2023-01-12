@@ -1,4 +1,4 @@
-{{- if eq .Values.database.type "cockroachdb" }}
+{{- if eq .Values.database.type "cockroachdb" || eq .Values.database.deploy "true" }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:

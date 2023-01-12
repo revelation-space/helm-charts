@@ -14,8 +14,8 @@ monitoring:
   metrics:
     # https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
     prometheusOperator:
-      enabled: false
-      releaseName: prom # SHOULD BE THE PROM OPERATOR CLUSTER RELEASE CHART NAME
+      enabled: true
+      releaseName: prometheus-stack # SHOULD BE THE PROM OPERATOR CLUSTER RELEASE CHART NAME
     stackdriverProjectId: ""
     prometheusPort: 9090
 
@@ -56,20 +56,22 @@ session:
   tokenExpirySec: 6000
 
 image:
-  repository: ""
-  tag: ""
+  repository: "revelation.space/nakama-urtur"
+  tag: "v0.0.1t"
   pullPolicy: IfNotPresent
 
 database:
+  deploy: false
   size: 1000Mi
   type: cockroachdb
+  url: "cockroachdb-public.cockroachdb"
   port: 26257
 
-cockroachdb:
-  image:
-    repository: cockroachdb/cockroach
-    tag: v20.2.4
-    pullPolicy: IfNotPresent
+# cockroachdb:
+#   image:
+#     repository: cockroachdb/cockroach
+#     tag: v20.2.4
+#     pullPolicy: IfNotPresent
 
 # Using postgres?
 # postgres:
