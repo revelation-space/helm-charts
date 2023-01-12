@@ -58,7 +58,7 @@ session:
 
 image:
   repository: "revelation.space/nakama-urtur"
-  tag: "v0.0.1t"
+  tag: "v0.0.2t"
   pullPolicy: IfNotPresent
 
 database:
