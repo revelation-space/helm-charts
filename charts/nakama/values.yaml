@@ -40,7 +40,7 @@ runtime:
 socket:
   port: 7350
   serverKey: "defaultkey"
-  type: "NodePort"
+  type: "LoadBalancer " #"NodePort"
   nodePort: 30020
   outgoingQueueSize: 16
 
